@@ -1,0 +1,4 @@
+python>=3.3
+pandas
+numpy
+jupyter
