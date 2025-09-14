@@ -4,3 +4,4 @@ By using miniconda you can easily download all.
 conda create --name <your_project_name> //By this line you crated virtula env with that name
 conda install --yes --file requirements.txt //By this line you install all dependencies
 These lines will help you to set your workplace.
+Link to the data: https://drive.google.com/file/d/1wzoyCfrIO56nn9r0DoqQdStargKmDUKu/view?usp=drive_link
