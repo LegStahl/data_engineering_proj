@@ -1,5 +1,5 @@
-#DATA_ENGINEERING_PROJ
-##CONFIGURING
+# DATA_ENGINEERING_PROJ
+## CONFIGURING
 In this project manager miniconda is used.
 File requirements.txt contains all required components to run program. 
 By using miniconda you can easily download all.
