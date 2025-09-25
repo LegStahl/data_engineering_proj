@@ -15,5 +15,6 @@ By using miniconda you can easily download all.
 Link to the data: https://drive.google.com/file/d/1wzoyCfrIO56nn9r0DoqQdStargKmDUKu/view?usp=drive_link
 
 <p align="center">First 10 lines of data</p>
+
 ![FIRST 10 lines of data](images/screenshot.png)
  
