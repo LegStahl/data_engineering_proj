@@ -12,7 +12,7 @@ By using miniconda you can easily download all.
 ##ENABLE ETL SCRIPT
 <pre>python3 data_load.py</pre>
 
-Link to the data: https://drive.google.com/file/d/1wzoyCfrIO56nn9r0DoqQdStargKmDUKu/view?usp=drive_link
+Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5jBo/view?usp=drive_link
 
 <p align="center">First 10 lines of data</p>
 
