@@ -1,4 +1,6 @@
 # DATA_ENGINEERING_PROJ
+## DATA DESCRIPTION
+DATA is list of crimes which were comitted in New-York from 2020 till present.
 ## CONFIGURING
 In this project manager miniconda is used.
 File requirements.txt contains all required components to run program. 
@@ -9,7 +11,7 @@ By using miniconda you can easily download all.
 4. <pre> conda install --yes --file requirements.txt </pre> By this line you install all dependencies
 5. <pre> conda deactivate </pre> By this line of code you disable your virtual env
 
-##ENABLE ETL SCRIPT
+## ENABLE ETL SCRIPT
 <pre>python3 data_load.py</pre>
 
 Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5jBo/view?usp=drive_link
