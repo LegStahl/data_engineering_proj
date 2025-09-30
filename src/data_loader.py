@@ -19,7 +19,9 @@ raw_data=pd.read_csv(output)
 
 print(raw_data.dtypes)
 
-# ---  Renamed columns ---
+
+
+# --- Rename columns ---
 raw_data.columns = [
     "dr_no", "date_reported", "date_occured", "time_occured",
     "area", "area_name", "report_dist_no", "part",
@@ -32,40 +34,24 @@ raw_data.columns = [
     "location", "cross_street", "latitude", "longitude"
 ]
 
-# --- Normalized types ---
-
-# Date
+# --- Dates ---
 raw_data["date_reported"] = pd.to_datetime(raw_data["date_reported"], errors="coerce")
 raw_data["date_occured"] = pd.to_datetime(raw_data["date_occured"], errors="coerce")
 
-# TIME
+# --- Time ---
 raw_data["time_occured"] = (
-    raw_data["time_occured"]
-    .astype(str)
-    .str.zfill(4)
+    raw_data["time_occured"].astype(str).str.replace(r"\D", "", regex=True).str.zfill(4)
 )
 raw_data["time_occured"] = pd.to_datetime(
     raw_data["time_occured"], format="%H%M", errors="coerce"
 ).dt.time
 
-
-categorical_cols = [
-    "area_name", "crime_desc", "mocodes", "victim_sex",
-    "victim_descent", "premis_desc", "weapon_desc",
-    "status", "status_desc", "location", "cross_street"
-]
-for col in categorical_cols:
-    raw_data[col] = raw_data[col].astype("category")
-
-
-int_cols = [
-    "dr_no", "area", "report_dist_no", "part",
-    "crime_code", "victim_age"
-]
+# --- Number codes ---
+int_cols = ["dr_no", "area", "report_dist_no", "part", "crime_code", "victim_age"]
 for col in int_cols:
     raw_data[col] = pd.to_numeric(raw_data[col], errors="coerce").astype("Int64")
 
-
+# --- Float numbers ---
 float_cols = [
     "premis_code", "weapon_code",
     "crime_code_1", "crime_code_2", "crime_code_3", "crime_code_4",
@@ -74,8 +60,14 @@ float_cols = [
 for col in float_cols:
     raw_data[col] = pd.to_numeric(raw_data[col], errors="coerce")
 
-# --- Save in parquet---
+# --- string ---
+categorical_cols = [
+    "area_name", "crime_desc", "mocodes", "victim_sex", "victim_descent",
+    "premis_desc", "weapon_desc", "status", "status_desc",
+    "location", "cross_street"
+]
+for col in categorical_cols:
+    raw_data[col] = raw_data[col].astype("string")
+
+# --- Сохраняем в Parquet ---
 raw_data.to_parquet("crime_data.parquet", engine="pyarrow", index=False)
-
-
-print(raw_data.head(10))
