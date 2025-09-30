@@ -1,47 +1,67 @@
 import requests
 
-def fetch_part_data(part, api_key):
-    url = "https://api.octopart.com/graphql"  # пример GraphQL endpoint
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
+filename='set'
+
+def search_github_repos(query: str, max_results: int = 5):
+    """
+    Ищет репозитории на GitHub по заданному запросу и возвращает список словарей с названием и ссылкой.
+    """
+    url = "https://api.github.com/search/repositories"
+    params = {
+        "q": query,
+        "sort": "stars",
+        "order": "desc"
     }
-    query = {
-        "query": """
-        query {
-            search(q: "%s", limit: 1) {
-                results {
-                    part {
-                        mpn
-                        manufacturer {
-                            name
-                        }
-                    }
-                }
-            }
-        }
-        """ % part
-    }
-    resp = requests.post(url, json=query, headers=headers)
-    resp.raise_for_status()
-    return resp.json()
 
-if __name__ == "__main__":
-    api_key = ''
-    with open("key", "r") as f:
-        api_key = f.read().strip()
-    print(api_key)
+    try:
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()  # Проверяем HTTP-код ответа
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP ошибка: {http_err}")
+        return []
+    except requests.exceptions.ConnectionError as conn_err:
+        print(f"Ошибка соединения: {conn_err}")
+        return []
+    except requests.exceptions.Timeout as timeout_err:
+        print(f"Превышено время ожидания: {timeout_err}")
+        return []
+    except requests.exceptions.RequestException as req_err:
+        print(f"Ошибка запроса: {req_err}")
+        return []
 
-    part = "LM358"
-    data = fetch_part_data(part, api_key)
-    print(data)
+    try:
+        data = response.json()
+    except ValueError as json_err:
+        print(f"Ошибка декодирования JSON: {json_err}")
+        return []
 
-    houses = load_data_from_api(API_URL, 50)
-    result = convert_to_df_and_save(houses, OUTPUT_FILENAME)
+    repos = []
+    for repo in data.get("items", [])[:max_results]:
+        repos.append({
+            "name": repo.get("full_name"),
+            "url": repo.get("html_url")
+        })
 
-    print(result.info())
-    print(result["name"].head(10))
+    return repos
+
+
+def main():
+    query=""
+    with open(filename, "r") as f:
+        query = [line.strip() for line in f if line.strip()]
+
+    print(query)
+    print(f"Поиск репозиториев GitHub по запросу: '{query}'\n")
+    repos = search_github_repos(query)
+
+    if not repos:
+        print("Репозитории не найдены или произошла ошибка.")
+        return
+
+    for idx, repo in enumerate(repos, start=1):
+        print(f"{idx}. {repo['name']} — {repo['url']}")
 
 
 if __name__ == "__main__":
     main()
+
