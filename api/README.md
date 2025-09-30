@@ -1,6 +1,7 @@
 # API FOR FINDING REPOS WITH SPECIFIED REQUEST
 ## INSTRUCTIONS
 LINK OF API IS https://api.github.com/search/repositories
+
 In this project manager miniconda is used.
 File requirements.txt contains all required components to run program. 
 By using miniconda you can easily download all.
