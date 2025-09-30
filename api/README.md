@@ -10,3 +10,7 @@ By using miniconda you can easily download all.
 5. <pre> conda deactivate </pre> By this line of code you disable your virtual env
 
 File set contains specified words which repo must contain
+
+
+
+![FIRST 10 lines of data](images/First_five.png)
