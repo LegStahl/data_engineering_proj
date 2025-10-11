@@ -1,6 +1,16 @@
 import requests
+import pandas as pd
 
 filename='set'
+
+
+def save_as_csv(repos):
+
+    df = pd.DataFrame(repos, columns=['name', 'url'])
+
+    df.to_csv('repos.csv', index=False, encoding='utf-8-sig')
+    print("Data in .csv was saved")
+
 
 def search_github_repos(query: str, max_results: int = 5):
 
@@ -59,6 +69,9 @@ def main():
     for idx, repo in enumerate(repos, start=1):
         print(f"{idx}. {repo['name']} — {repo['url']}")
 
+    answer = input("Do you want to save data as .csv? Write 'yes' ot 'no'" )
+    if answer == "yes":
+        save_as_csv(repos)
 
 if __name__ == "__main__":
     main()
