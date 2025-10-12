@@ -2,3 +2,5 @@ src/crime_data.csv
 src/crime_data.parquet
 api/src/repos.csv
 api/src/key
+notebooks/crime_data.csv
+notebooks/.ipynb_checkpoints

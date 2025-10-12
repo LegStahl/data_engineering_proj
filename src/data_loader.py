@@ -69,5 +69,9 @@ categorical_cols = [
 for col in categorical_cols:
     raw_data[col] = raw_data[col].astype("string")
 
-# --- Сохраняем в Parquet ---
+# --- Save as Parquet ---
 raw_data.to_parquet("crime_data.parquet", engine="pyarrow", index=False)
+
+
+# --- Save as new csv --df.to_csv("repos.csv", index=False, encoding="utf-8")
+raw_data.to_csv("//home/bogdn//python_projects//data_engineering_proj//notebooks//crime_data.csv", index="pyarrow", encoding="utf-8")

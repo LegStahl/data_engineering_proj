@@ -4,3 +4,5 @@ numpy
 jupyter
 gdown
 pyarrow
+matplotlib
+seaborn
