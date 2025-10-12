@@ -50,4 +50,10 @@ Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5
 <p align="center">First 10 lines of data</p>
 
 ![FIRST 10 lines of data](images/screenshot.png)
+
+
+## Notebooks
+
+In that dir jupyter notebooks is found. EDA has been performed in order to make the data clean and meet requirments.
+And also some estimations of data has been made. All that is in Russia language.
  
