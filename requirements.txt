@@ -6,3 +6,5 @@ gdown
 pyarrow
 matplotlib
 seaborn
+sqlalchemy
+psycopg2

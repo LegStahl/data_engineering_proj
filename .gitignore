@@ -4,3 +4,5 @@ api/src/repos.csv
 api/src/key
 notebooks/crime_data.csv
 notebooks/.ipynb_checkpoints
+src/creds.db
+notebooks/crime_data.parquet
