@@ -55,4 +55,11 @@ Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5
 
 In that dir jupyter notebooks is found. EDA has been performed in order to make the data clean and meet requirments.
 And also some estimations of data has been made. All that is in Russia language.
+
+## Loading to database
+
+In src/ there is a script write_to_db.py
+
+<pre> python3 write_to_db.py </pre> By this line you can load your processed data to DB.
+
  
