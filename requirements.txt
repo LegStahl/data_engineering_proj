@@ -8,3 +8,5 @@ matplotlib
 seaborn
 sqlalchemy
 psycopg2
+seaborn
+plotly
