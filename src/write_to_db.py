@@ -48,9 +48,7 @@ def read_from_parquet_100():
     df_reduced['Date_Rptd'] = pd.to_datetime(df_reduced['Date_Rptd'],  format=date_format, errors='coerce').dt.date
     df_reduced['DATE_OCC'] = pd.to_datetime(df_reduced['DATE_OCC'], format=date_format, errors='coerce').dt.date
 
-    categorical_cols = ['Vict_Sex', 'Vict_Descent', 'Status']
-    for col in categorical_cols:
-        df_reduced[col] = df_reduced[col].astype(str)
+
 
     for col in ['Vict_Sex', 'Vict_Descent', 'Status']:
         df_reduced[col] = df_reduced[col].where(df[col].notna(), None)
