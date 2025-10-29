@@ -50,9 +50,9 @@ __OR__
 You can use a config.sh, that in etl directory is placed.
 
 ## ENABLE ETL SCRIPT
-**Note:**
-    src dir of this repository contains code that has been used for primary downloading and loading data, it is a little bit outdated but it can show evolution of the project. ETL script itself is 
-    placed in etl dir of this repository.
+> **Note:**
+> src dir of this repository contains code that has been used for primary downloading and loading data, it is a little bit outdated but it can show evolution of the project. ETL script itself is 
+> placed in etl dir of this repository.
 <pre>python3 data_load.py</pre>
 
 Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5jBo/view?usp=drive_link
