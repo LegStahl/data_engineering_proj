@@ -75,6 +75,15 @@ To call help function of the script you will need to put first argument.
 ```
 python3 etl/main.py --help
 ```
+To call script that only downloads file from google drive write this:
+```
+python3 etl/main.py ext 'YOUR_FILE_ID_FROM_GOOGLE_DIRVE'
+```
+To call script that downloads file from google drive, makes all transformations for .parquet file, loads data to data base write this:
+__NOTE__: If you want to write to original db write orig as third argument or write test to write to test db. 
+```
+python3 etl/main.py all 'YOUR_FILE_ID_FROM_GOOGLE_DIRVE' orig or test
+```
 
 <p align="center">First 10 lines of data</p>
 
