@@ -3,6 +3,9 @@
 Data represents a list of crimes that has been comitted in New-York from 2020 till present.
 Purpose of this project is to analyze the data structure, validate the structure, transform it to more sufficient way to store(data base and .parquet) for further steps for extracting logic-value from clean data.
 Below, a table is represented, that shows columns, their type and some description about each. 
+    
+Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5jBo/view?usp=drive_link
+
 | Old name of column | New name of column     | Type of data in pandas | Description |
 |------------------|--------------------------|------------------------|-------------|
 | DR_NO            | dr_no              | Int64               | Unique ID of case |
@@ -53,9 +56,24 @@ You can use a config.sh, that in etl directory is placed.
 > **NOTE: :warning:**
 > src dir of this repository contains code that has been used for primary downloading and loading data, it is an outdated version but it can show evolution of the project. __ETL script__ itself is 
 > placed in __etl__ dir of this repository.
-<pre>python3 data_load.py</pre>
 
-Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5jBo/view?usp=drive_link
+__structure of the project__
+├── api - API of GitHub has been used for learning purpose.
+├── src - Contains primary code of the ETL script.
+├── images - Contains images.
+├── notebooks - Contains jupyter notebook, that describes __data__ and shows how to clean it, make it valid and etc. __NOTE:__ All description in Russian language.
+├── README.md - Contains information about project and instructions to start project on your own machine. 
+└── etl - Contains code of ETL script.
+    ├── main.py - Main block of script that reads command arguments and calls other functions.
+    ├── extract.py - This block of script is responsible for extracting data from google drive and writing *.csv file on machine.
+    ├── transform.py - This block of script is responsible for transforming types of data of each columns and also here a rename of columns happens.
+        ├── validate.py - This block of script is responsible for validating data, it drops unuseful columns __(read notebook)__.
+    ├── load.py - This block of script is responsible for loading 100 rows of data to data base and also for writing *.parquet file on machine.
+
+To call help function of the script you will need to put first argument.
+```
+python3 etl/main.py --help
+```
 
 <p align="center">First 10 lines of data</p>
 
