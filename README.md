@@ -48,7 +48,9 @@ By using miniconda you can easily download all.
 <pre> 5. conda env config vars TABLE_NAME='your' DB_USER='your' DB_PASS='your' DB_HOST='your' DB_PORT='your' </pre> For using ETL script you will need to init your variables in virtual enviroments.
 <pre> 6. conda deactivate </pre> By this line of code you disable your virtual env.
 
+
 __OR__
+
 
 You can use a config.sh, that in etl directory is placed.
 
@@ -85,7 +87,8 @@ __NOTE__: If you want to write to original db write orig as third argument or wr
 python3 etl/main.py all 'YOUR_FILE_ID_FROM_GOOGLE_DIRVE' orig or test
 ```
 __EXAMPLES__
-Number of file doesn't exist, this example just should show how to call ETL script. 
+
+Number of file __doesn't exist, this example just should show how to call ETL script. 
 ```
 python3 etl/main.py all 1jfu38JHHhfkkdbHUHbnfbD0 orig
 ```
