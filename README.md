@@ -57,7 +57,7 @@ You can use a config.sh, that in etl directory is placed.
 > src dir of this repository contains code that has been used for primary downloading and loading data, it is an outdated version but it can show evolution of the project. __ETL script__ itself is 
 > placed in __etl__ dir of this repository.
 
-__structure of the project__
+__Structure of the project__
 ```
 ├── api - API of GitHub has been used for learning purpose.
 ├── src - Contains primary code of the ETL script.
@@ -83,6 +83,14 @@ To call script that downloads file from google drive, makes all transformations 
 __NOTE__: If you want to write to original db write orig as third argument or write test to write to test db. 
 ```
 python3 etl/main.py all 'YOUR_FILE_ID_FROM_GOOGLE_DIRVE' orig or test
+```
+__EXAMPLES__
+Number of file doesn't exist, this example just should show how to call ETL script. 
+```
+python3 etl/main.py all 1jfu38JHHhfkkdbHUHbnfbD0 orig
+```
+```
+python3 etl/main.py ext 1jfu38JHHhfkkdbHUHbnfbD0
 ```
 
 <p align="center">First 10 lines of data</p>
