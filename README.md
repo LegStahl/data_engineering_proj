@@ -50,7 +50,7 @@ __OR__
 You can use a config.sh, that in etl directory is placed.
 
 ## ENABLE ETL SCRIPT
-> **NOTE:**
+> **NOTE: :warning:**
 > src dir of this repository contains code that has been used for primary downloading and loading data, it is an outdated version but it can show evolution of the project. __ETL script__ itself is 
 > placed in __etl__ dir of this repository.
 <pre>python3 data_load.py</pre>
