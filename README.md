@@ -58,6 +58,7 @@ You can use a config.sh, that in etl directory is placed.
 > placed in __etl__ dir of this repository.
 
 __structure of the project__
+```
 ├── api - API of GitHub has been used for learning purpose.
 ├── src - Contains primary code of the ETL script.
 ├── images - Contains images.
@@ -69,7 +70,7 @@ __structure of the project__
     ├── transform.py - This block of script is responsible for transforming types of data of each columns and also here a rename of columns happens.
         ├── validate.py - This block of script is responsible for validating data, it drops unuseful columns __(read notebook)__.
     ├── load.py - This block of script is responsible for loading 100 rows of data to data base and also for writing *.parquet file on machine.
-
+```
 To call help function of the script you will need to put first argument.
 ```
 python3 etl/main.py --help
