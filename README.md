@@ -38,11 +38,11 @@ Below, a table is represented, that shows columns, their type and some descripti
 In this project manager miniconda is used.
 File requirements.txt contains all required components to run program. 
 By using miniconda you can easily download all.
-<pre> 1. conda create --name <your_project_name> </pre> By this line you created virtual env with that name.
-<pre> 2. conda activate <your_project_name> </pre> By this line you activate your created virutal env.
+<pre> 1. conda create --name 'your_project_name' </pre> By this line you created virtual env with that name.
+<pre> 2. conda activate 'your_project_name' </pre> By this line you activate your created virutal env.
 <pre> 3. conda config --add channels conda-forge </pre> One library "gdown" which is required to download big files from google drive requires another source.
 <pre> 4. conda install --yes --file requirements.txt </pre> By this line you install all dependencies
-<pre> 5. conda env config vars TABLE_NAME=<your> DB_USER=<your> DB_PASS=<your> DB_HOST=<your> DB_PORT=<your> </pre> For using ETL script you will need to init your variables in virtual enviroments.
+<pre> 5. conda env config vars TABLE_NAME='your' DB_USER='your' DB_PASS='your' DB_HOST='your' DB_PORT='your' </pre> For using ETL script you will need to init your variables in virtual enviroments.
 <pre> 6. conda deactivate </pre> By this line of code you disable your virtual env.
 
 __OR__
@@ -50,8 +50,9 @@ __OR__
 You can use a config.sh, that in etl directory is placed.
 
 ## ENABLE ETL SCRIPT
-[!NOTE] > src dir of this repository contains code that has been used for primary downloading and loading data, it is a little bit outdated but it can show evolution of the project. ETL script itself is 
-placed in etl dir of this repository.
+!!! note
+    src dir of this repository contains code that has been used for primary downloading and loading data, it is a little bit outdated but it can show evolution of the project. ETL script itself is 
+    placed in etl dir of this repository.
 <pre>python3 data_load.py</pre>
 
 Link to the data: https://drive.google.com/file/d/1GAFf1P8SRlm_NM77FwquFAQw1YLF5jBo/view?usp=drive_link
