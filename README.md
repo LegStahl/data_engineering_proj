@@ -52,7 +52,7 @@ By using miniconda you can easily download all.
 __OR__
 
 
-You can use a __config.sh__, that in etl directory is placed. In file settings all flags must be placed, in current file not existing data present as an example.
+You can use a __config.sh__, that is in root of rep placed. In file settings all flags must be placed, in current file not existing data present as an example.
 
 ```
 name_of_env=my_cool
