@@ -64,7 +64,7 @@ DB_PORT=5432
 ```
 ## ENABLE ETL SCRIPT
 > **NOTE: :warning:**
-> src dir of this repository contains code that has been used for primary downloading and loading data, it is an outdated version but it can show evolution of the project. __ETL script__ itself is 
+> experiments dir of this repository contains code that has been used for primary downloading and loading data, it is an outdated version but it can show evolution of the project. __ETL script__ itself is 
 > placed in __etl__ dir of this repository.
 
 __Structure of the project__
