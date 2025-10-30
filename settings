@@ -1,0 +1,6 @@
+name_of_env=my_cool
+TABLE_NAME=my_table
+DB_USER=admin
+DB_PASS=secret123
+DB_HOST=localhost
+DB_PORT=5432
