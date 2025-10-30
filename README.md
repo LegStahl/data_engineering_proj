@@ -52,8 +52,16 @@ By using miniconda you can easily download all.
 __OR__
 
 
-You can use a config.sh, that in etl directory is placed.
+You can use a __config.sh__, that in etl directory is placed. In file settings all flags must be placed, in current file not existing data present as an example.
 
+```
+name_of_env=my_cool
+TABLE_NAME=my_table
+DB_USER=admin
+DB_PASS=secret123
+DB_HOST=localhost
+DB_PORT=5432
+```
 ## ENABLE ETL SCRIPT
 > **NOTE: :warning:**
 > src dir of this repository contains code that has been used for primary downloading and loading data, it is an outdated version but it can show evolution of the project. __ETL script__ itself is 
