@@ -2,7 +2,19 @@ import os
 
 import pandas as pd
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import create_engine, MetaData, select, text, inspect,  Column, Integer, String, Date, Time, Enum
+from sqlalchemy import (
+    create_engine,
+    MetaData,
+    select,
+    text,
+    inspect,
+    Column,
+    Integer,
+    String,
+    Date,
+    Time,
+    Enum,
+)
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.dialects.postgresql import BIGINT, VARCHAR
 from sqlalchemy.engine import URL
@@ -18,6 +30,7 @@ BD_NAME_HOMEWORK = "homeworks"
 TABLE_NAME = os.getenv("TABLE_NAME")
 PUBLIC = "public"
 
+
 class DRTable(Base):
     __tablename__ = TABLE_NAME
     DR_NO = Column(BIGINT, primary_key=True)
@@ -30,7 +43,7 @@ class DRTable(Base):
     Part_1_2 = Column(Integer)
     Crm_Cd_Desc = Column(VARCHAR(255))
     Vict_Age = Column(Integer)
-    Vict_Sex = Column(Enum('M','F','X','U', name='vict_sex'))
+    Vict_Sex = Column(Enum("M", "F", "X", "U", name="vict_sex"))
     Vict_Descent = Column(VARCHAR(50))
     Premis_Cd = Column(Integer)
     Premis_Desc = Column(VARCHAR(255))
@@ -53,18 +66,19 @@ def get_engine_and_inspector(choosing):
         base_name = BD_NAME_HOMEWORK
     url = URL.create(
         "postgresql+psycopg2",
-        username = user,
-        password = password_,
-        host = ip_addr,
-        port = int(port),
-        database = base_name
+        username=user,
+        password=password_,
+        host=ip_addr,
+        port=int(port),
+        database=base_name,
     )
     engine = create_engine(url)
     inspector = inspect(engine)
     return engine, inspector
 
+
 def creating_table(engine, inspector):
-    tables = inspector.get_table_names(schema='public')
+    tables = inspector.get_table_names(schema="public")
     check = False
     print(TABLE_NAME)
     for t in tables:
@@ -75,16 +89,12 @@ def creating_table(engine, inspector):
     Base.metadata.create_all(engine)
     return check
 
+
 def add_data_to_db(df):
-    df.to_sql(
-        TABLE_NAME,
-        engine,
-        if_exists='append',
-        index=False
-    )
+    df.to_sql(TABLE_NAME, engine, if_exists="append", index=False)
     metadata = MetaData()
     metadata.reflect(bind=engine, schema=PUBLIC)
-    dr_table = metadata.tables[f'{PUBLIC}.{TABLE_NAME}']
+    dr_table = metadata.tables[f"{PUBLIC}.{TABLE_NAME}"]
     try:
         with engine.connect() as conn:
             result = conn.execute(select(dr_table))
@@ -95,13 +105,15 @@ def add_data_to_db(df):
         print("Query failed!", e)
         return False
 
+
 def write_data_to_parquet(df):
-     df.to_parquet(NAME_OF_DATA, index=False)
+    df.to_parquet(NAME_OF_DATA, index=False)
+
 
 def load_data(df, choosing):
     engine, inspector = get_engine_and_inspector(choosing)
     if creating_table(engine, inspector) == True:
-        result = True#add_data_to_db(df)
+        result = True  # add_data_to_db(df)
         return result
     else:
         print("Table couldn't be created, please check data base")
