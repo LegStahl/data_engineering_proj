@@ -10,3 +10,4 @@ notebooks/crime_data.parquet
 *.db
 experiments/api/src/set
 *.parquet
+*.ipynb_checkpoints
