@@ -69,8 +69,9 @@ DB_PORT=5432
 
 __Structure of the project__
 ```
-├── api - API of GitHub has been used for learning purpose.
-├── src - Contains primary code of the ETL script.
+├── experiments - In this directory api and source dirs are presented. They show evolution of project. Old and probe versions.
+    ├── src - Contains primary code of the ETL script.
+    └── api - API of GitHub has been used for learning purpose.t.
 ├── images - Contains images.
 ├── notebooks - Contains jupyter notebook, that describes __data__ and shows how to clean it, make it valid and etc. __NOTE:__ All description in Russian language.
 ├── README.md - Contains information about project and instructions to start project on your own machine. 
