@@ -113,14 +113,9 @@ python3 etl/main.py ext 1jfu38JHHhfkkdbHUHbnfbD0
 
 In that dir jupyter notebooks is found. EDA has been performed in order to make the data clean and meet requirments.
 And also some estimations of data has been made. All that is in Russia language. Also in the end of the EDA has been added new plots by using Seaborn.
+All in notebook is in RUSSIAN language.
 
-## Loading to database
 
-In src/ there is a script write_to_db.py
-
-<pre> python3 write_to_db.py </pre> 
-By this line you can load your processed data to DB. Howver tou need to have virtual enviroment variables defined
-such as __DB_USER__, __DB_PASS__, __DB_HOST__, __DB_PORT__.
 
 
  
